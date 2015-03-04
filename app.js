@@ -11,4 +11,5 @@ angular.module('madLibs',[])
 		$scope.obnoxiuousCelebrity = '';
 		$scope.hugeNumber = '';
 
+
 	}]);

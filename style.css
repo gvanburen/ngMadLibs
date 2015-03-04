@@ -74,6 +74,10 @@ input {
 	font-size: 1em;
 }
 
+.madInputs>button {
+	float: right;
+}
+
 .text {
 	padding: 25px;
 	font-size: 1.2em;

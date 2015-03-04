@@ -17,31 +17,35 @@
   			</section>
   		</section>
   		<div ng-controller="madCtrl">
-    	<section class="top">
+    	<section class="top" ng-hide="madInputs.$valid && madInputs.submitted"">
     		<h2>Provide the following words:</h2>
-    		<div class="wordChoice">
-    		<div class="column">
-				<p>Select your character's gender</p>
-				<input type="radio" ng-model="gender" value="male" />Male</input>
-				<input type="radio" ng-model="gender" value="female" />Female</input>
-				<input type="text" ng-model="charName" placeholder="name" />
-				<input type="text" ng-model="jobTitle" placeholder="job title" />
-				<input type="text" ng-model="tediousTask" placeholder="tedious task" />
+    		<div class="wordChoice" novalidate ng-submit="">
+    			<p>Select your character's gender</p>
+				<input type="radio" ng-model="gender" value="male" required/>Male
+				<input type="radio" ng-model="gender" value="female" />Female
+    		<form name="madInputs" >
+    			<div class="column">
+				<input type="text" ng-model="charName" placeholder="name" required/>
+				<input type="text" ng-model="jobTitle" placeholder="job title" required />
+				<input type="text" ng-model="tediousTask" placeholder="tedious task" required />
 				</div>
 				<div class="column">
-				<input type="text" ng-model="dirtyTask" placeholder="dirty task" />
-				<input type="text" ng-model="celebrity" placeholder="celebrity" />
-				<input type="text" ng-model="uselessSkill" placeholder="useless skill" />
+				<input type="text" ng-model="dirtyTask" placeholder="dirty task" required />
+				<input type="text" ng-model="celebrity" placeholder="celebrity" required/>
+				<input type="text" ng-model="uselessSkill" placeholder="useless skill" required />
 				</div>
 				<div class="column">
-				<input type="text" ng-model="adjective" placeholder="adjective" />
-				<input type="text" ng-model="obnoxiuousCelebrity" placeholder="obnoxiuous celbertity" />
-				<input type="text" ng-model="hugeNumber" placeholder="huge number" />
+				<input type="text" ng-model="adjective" placeholder="adjective" required/>
+				<input type="text" ng-model="obnoxiuousCelebrity" placeholder="obnoxiuous celbertity" required />
+				<input type="text" ng-model="hugeNumber" placeholder="huge number" required />
+				</div>
+				<button type="submit" ng-disabled="madInputs.$invalid">Generate My Mad Lib</button> 
+			</form>
 			</div>
-			</div>
+
 		</section>
 		<hr>
-    	<section class="text" ng-switch="gender">
+    	<section class="text" ng-switch="gender" ng-show="madInputs.$valid && madInputs.submitted">
 			<p ng-switch-when="female">{{charName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated   {{tediousTask}} and {{dirtyTask}}. So, {{charName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead.<br><br>
 	 
 			What a great decision! With her new skills, {{charName}} built a(n) {{adjective}} robot named {{obnoxiuousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster. </p>
