@@ -17,42 +17,43 @@
   			</section>
   		</section>
   		<div ng-controller="madCtrl">
-    	<section class="top" ng-hide="madInputs.$valid && madInputs.submitted"">
+    	<section class="top" ng-hide="madInputs.$valid && madInputs.$submitted">
     		<h2>Provide the following words:</h2>
-    		<div class="wordChoice" novalidate ng-submit="">
+    		<div class="wordChoice">
     			<p>Select your character's gender</p>
-				<input type="radio" ng-model="gender" value="male" required/>Male
-				<input type="radio" ng-model="gender" value="female" />Female
-    		<form name="madInputs" >
+				<input type="radio" ng-model="gender" value="male" required>Male
+				<input type="radio" ng-model="gender" value="female">Female
+    		<form name="madInputs">
     			<div class="column">
-				<input type="text" ng-model="charName" placeholder="name" required/>
-				<input type="text" ng-model="jobTitle" placeholder="job title" required />
-				<input type="text" ng-model="tediousTask" placeholder="tedious task" required />
+					<input type="text" ng-model="charName" placeholder="name" required>
+					<input type="text" ng-model="jobTitle" placeholder="job title" required >
+					<input type="text" ng-model="tediousTask" placeholder="tedious task" required >
 				</div>
 				<div class="column">
-				<input type="text" ng-model="dirtyTask" placeholder="dirty task" required />
-				<input type="text" ng-model="celebrity" placeholder="celebrity" required/>
-				<input type="text" ng-model="uselessSkill" placeholder="useless skill" required />
+					<input type="text" ng-model="dirtyTask" placeholder="dirty task" required >
+					<input type="text" ng-model="celebrity" placeholder="celebrity" required>
+					<input type="text" ng-model="uselessSkill" placeholder="useless skill" required >
 				</div>
 				<div class="column">
-				<input type="text" ng-model="adjective" placeholder="adjective" required/>
-				<input type="text" ng-model="obnoxiuousCelebrity" placeholder="obnoxiuous celbertity" required />
-				<input type="text" ng-model="hugeNumber" placeholder="huge number" required />
+					<input type="text" ng-model="adjective" placeholder="adjective" required>
+					<input type="text" ng-model="obnoxiuousCelebrity" placeholder="obnoxiuous celebrtity" required >
+					<input type="number" ng-model="hugeNumber" placeholder="huge number" required >
 				</div>
-				<button type="submit" ng-disabled="madInputs.$invalid">Generate My Mad Lib</button> 
+				<button type="submit" ng-disabled="madInputs.$invalid">Generate My Mad Lib</button>
 			</form>
 			</div>
-
 		</section>
 		<hr>
-    	<section class="text" ng-switch="gender" ng-show="madInputs.$valid && madInputs.submitted">
+    	<section class="text" ng-switch="gender" ng-show="madInputs.$submitted && madInputs.$valid">
 			<p ng-switch-when="female">{{charName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated   {{tediousTask}} and {{dirtyTask}}. So, {{charName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead.<br><br>
 	 
 			What a great decision! With her new skills, {{charName}} built a(n) {{adjective}} robot named {{obnoxiuousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster. </p>
 			<p ng-switch-when="male">{{charName}} was a {{jobTitle}} who loved technology. Although he loved parts of his job, he absolutely hated   {{tediousTask}} and {{dirtyTask}}. So, {{charName}} met with his life mentor {{celebrity}} who told him to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so he studied programming instead.<br><br>
 	 
 			What a great decision! With his new skills, {{charName}} built a(n) {{adjective}} robot named {{obnoxiuousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster. </p>
+			<button type="submit" ng-click="resetMad()">Start Over</button>
 		</section>
+
 		</div>
 	</section>
 	<!-- <script src="https://code.angularjs.org/1.3.14/angular.js"></script> -->
