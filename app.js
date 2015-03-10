@@ -1,4 +1,4 @@
-angular.module('madLibs',[])
+angular.module('madLibs',['ngAnimate'])
 	.controller('madCtrl', ['$scope', function($scope){
 		$scope.gender = 'male';
 		$scope.charName = '';
@@ -22,6 +22,7 @@ angular.module('madLibs',[])
 			$scope.adjective = '';
 			$scope.obnoxiuousCelebrity = '';
 			$scope.hugeNumber = '';
+			$scope.madInputs.$submitted = false;
 		}
 
 	}]);

@@ -46,8 +46,10 @@ body {
 
 .top {
 	padding: 25px;
-	margin: 5px ;
+	margin: 5px;
 	font-family: 'helvetica', sans-serif;
+	opacity: 1;
+	height: 100vh;
 }
 
 .wordChoice {
@@ -61,7 +63,6 @@ body {
 	width:30%;
 	display:inline-block;
 	box-sizing: border-box;
-
 }
 
 .column>input{
@@ -81,5 +82,20 @@ input {
 .text {
 	padding: 25px;
 	font-size: 1.2em;
+	opacity: 1;
+	height: 100vh;
 }
 
+.top.ng-hide-add.ng-hide-add-active,
+.top.ng-hide-remove.ng-hide-remove-active,
+.text.ng-hide-add.ng-hide-add-active,
+.text.ng-hide-remove.ng-hide-remove-active {
+  	-webkit-transition: all ease-in-out 1s;
+	transition: all ease-in-out 1s;
+}
+
+.top.ng-hide,
+.text.ng-hide {
+	height: 0;
+	opacity: 0;
+}
